@@ -3,9 +3,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from src.models import Hero
+from src.models import Hero, Base
 
 engine = create_engine("sqlite:///database.db", echo=True)
+Base.metadata.create_all(engine)
 
 
 def get_heros() -> list[Hero]:
